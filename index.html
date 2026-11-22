@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 ROYAL SPIN & WIN - Click to Upload Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-purple: #1a0b2e;
+            --royal-gold: #ffd700;
+            --royal-gold-light: #ffea79;
+            --neon-green: #00ffcc;
+            --pink-accent: #ff007f;
+            --alert-red: #ff3366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--royal-purple), #0f051d, #240e3f);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 12px 20px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom: 2px solid var(--royal-gold);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1.logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--royal-gold);
+            text-shadow: 0 0 10px var(--royal-gold), 0 0 20px var(--pink-accent);
+        }
+
+        /* Side Refer to Spin Win Floating Tab & Drawer */
+        .side-refer-tab {
+            position: fixed;
+            right: 0;
+            top: 42%;
+            transform: translateY(-50%);
+            background: linear-gradient(180deg, var(--royal-gold), #f39c12);
+            color: #1a0b2e;
+            font-weight: 800;
+            font-size: 0.72rem;
+            padding: 10px 6px;
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+            border: 2px solid #fff;
+            border-right: none;
+            cursor: pointer;
+            z-index: 90;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            box-shadow: -3px 0 15px rgba(255, 215, 0, 0.55);
+        }
+
+        .side-refer-drawer {
+            position: fixed;
+            right: -285px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 275px;
+            background: linear-gradient(145deg, #251047, #140726);
+            border: 2px solid var(--royal-gold);
+            border-right: none;
+            border-top-left-radius: 16px;
+            border-bottom-left-radius: 16px;
+            padding: 14px;
+            z-index: 95;
+            box-shadow: -6px 0 25px rgba(0, 0, 0, 0.75);
+            transition: right 0.3s ease;
+        }
+
+        .side-refer-drawer.open {
+            right: 0;
+        }
+
+        .refer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .refer-header h3 {
+            font-size: 0.88rem;
+            color: var(--royal-gold);
+        }
+
+        .refer-close-btn {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            border-radius: 6px;
+            padding: 2px 7px;
+            font-size: 0.72rem;
+            cursor: pointer;
+        }
+
+        .refer-desc {
+            font-size: 0.7rem;
+            color: #ddd;
+            margin-bottom: 8px;
+            line-height: 1.35;
+        }
+
+        .refer-progress-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 255, 204, 0.45);
+            border-radius: 10px;
+            padding: 8px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 0.75rem;
+        }
+
+        .refer-progress-box b {
+            color: var(--neon-green);
+            font-size: 0.9rem;
+        }
+
+        .social-share-list {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .btn-social {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            padding: 8px 10px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #fff;
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-social.wa {
+            background: linear-gradient(45deg, #25d366, #128c7e);
+        }
+
+        .btn-social.fb {
+            background: linear-gradient(45deg, #1877f2, #0d47a1);
+        }
+
+        .btn-social.ig {
+            background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+        }
+
+        /* Continuous Side-Scroll Dummy Winning Ticker */
+        .ticker-wrap {
+            width: 100%;
+            max-width: 480px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.45);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.35);
+            padding: 6px 0;
+            white-space: nowrap;
+        }
+
+        .ticker-track {
+            display: inline-flex;
+            width: max-content;
+            animation: scrollContinuous 28s linear infinite;
+            font-size: 0.72rem;
+            color: var(--royal-gold-light);
+        }
+
+        .ticker-group {
+            display: inline-flex;
+            gap: 28px;
+            padding-right: 28px;
+        }
+
+        .ticker-track span b {
+            color: var(--neon-green);
+        }
+
+        @keyframes scrollContinuous {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        /* Game Poster Card */
+        .game-poster {
+            width: 100%;
+            background: linear-gradient(120deg, rgba(255, 0, 127, 0.22), rgba(255, 215, 0, 0.16), rgba(0, 255, 204, 0.14));
+            border: 1.5px solid var(--royal-gold);
+            border-radius: 12px;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            box-shadow: 0 0 14px rgba(255, 215, 0, 0.2);
+        }
+
+        .poster-badge {
+            background: var(--royal-gold);
+            color: #1a0b2e;
+            font-weight: 900;
+            font-size: 0.75rem;
+            padding: 6px 8px;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 1.15;
+            flex-shrink: 0;
+        }
+
+        .poster-text h4 {
+            font-size: 0.8rem;
+            color: var(--royal-gold-light);
+        }
+
+        .poster-text p {
+            font-size: 0.68rem;
+            color: #eee;
+        }
+
+        /* Wallet Panel */
+        .wallet-panel {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--royal-gold);
+            border-radius: 12px;
+            padding: 8px;
+            flex: 1;
+            text-align: center;
+            box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.2);
+            position: relative;
+        }
+
+        .card h3 {
+            font-size: 0.65rem;
+            color: var(--royal-gold-light);
+            text-transform: uppercase;
+        }
+
+        .card p {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 2px;
+        }
+
+        .withdraw-btn {
+            margin-top: 4px;
+            background: linear-gradient(45deg, #00b09b, #96c93d);
+            border: none;
+            color: #fff;
+            padding: 4px 6px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 0 8px rgba(0, 255, 204, 0.5);
+            width: 100%;
+        }
+
+        /* CLICK-TO-OPEN UPLOAD SECTION */
+        .upload-trigger-container {
+            width: 100%;
+            margin-bottom: 12px;
+            display: none;
+        }
+
+        .btn-open-upload {
+            width: 100%;
+            background: linear-gradient(45deg, #00ffcc, #00b09b);
+            color: #000;
+            font-weight: 800;
+            border: none;
+            padding: 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            box-shadow: 0 0 12px rgba(0, 255, 204, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mini-upload-box {
+            width: 100%;
+            background: rgba(255, 215, 0, 0.08);
+            border: 1.5px dashed var(--royal-gold);
+            border-radius: 12px;
+            padding: 10px;
+            margin-top: 8px;
+            display: none;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .mini-upload-box.error-state {
+            border: 1.5px solid var(--alert-red) !important;
+            background: rgba(255, 51, 102, 0.12) !important;
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.5) !important;
+        }
+
+        .mini-upload-title {
+            font-size: 0.75rem;
+            color: var(--royal-gold);
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .red-mark-banner {
+            display: none;
+            background: var(--alert-red);
+            color: #fff;
+            font-weight: 800;
+            font-size: 0.68rem;
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .mini-form-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .mini-file-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--royal-gold);
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 6px;
+            border-radius: 6px;
+            flex: 1;
+            width: 100%;
+        }
+
+        .mini-input-utr {
+            background: rgba(0,0,0,0.6);
+            border: 1px solid var(--royal-gold);
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 6px 8px;
+            border-radius: 6px;
+            flex: 1.2;
+            width: 100%;
+        }
+
+        .mini-input-utr.input-error {
+            border: 1px solid var(--alert-red) !important;
+        }
+
+        .mini-submit-btn {
+            background: linear-gradient(45deg, #ffd700, #f39c12);
+            color: #000;
+            font-weight: 800;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            white-space: nowrap;
+        }
+
+        /* Wheel Container */
+        .wheel-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: 8px auto 15px auto;
+        }
+
+        .wheel-border {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                #ff416c 0deg 51.42deg,
+                #ff4b2b 51.42deg 102.85deg,
+                #f7b733 102.85deg 154.28deg,
+                #20bf6b 154.28deg 205.71deg,
+                #3867d6 205.71deg 257.14deg,
+                #8854d0 257.14deg 308.57deg,
+                #2bcbba 308.57deg 360deg
+            );
+            border: 7px solid var(--royal-gold);
+            box-shadow: 0 0 25px var(--royal-gold), inset 0 0 20px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+            transition: transform 5s cubic-bezier(0.12, 0.8, 0.15, 1);
+        }
+
+        .wheel-label {
+            position: absolute;
+            width: 50%;
+            height: 30px;
+            top: calc(50% - 15px);
+            left: 50%;
+            transform-origin: 0% 50%;
+            font-weight: 800;
+            font-size: 0.75rem;
+            color: #fff;
+            text-shadow: 1px 1px 3px #000, -1px -1px 3px #000;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 18px;
+            pointer-events: none;
+        }
+
+        .pointer {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top: 24px solid var(--neon-green);
+            z-index: 10;
+            filter: drop-shadow(0 0 5px var(--neon-green));
+        }
+
+        .center-spin-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65px;
+            height: 65px;
+            background: radial-gradient(circle, var(--royal-gold) 0%, #d4af37 100%);
+            border: 3px solid #fff;
+            border-radius: 50%;
+            color: #1a0b2e;
+            font-weight: 900;
+            font-size: 0.8rem;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Action Buttons */
+        .actions {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .btn-royal {
+            flex: 1;
+            background: linear-gradient(45deg, var(--royal-gold), #f39c12);
+            color: #1a0b2e;
+            border: none;
+            padding: 10px;
+            font-weight: 700;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .section-view {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .section-view.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .plan-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid var(--royal-gold);
+            border-radius: 14px;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 0 14px rgba(255, 215, 0, 0.2);
+        }
+
+        .plan-card h4 {
+            color: var(--royal-gold);
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .plan-card p {
+            font-size: 0.78rem;
+            margin-bottom: 10px;
+            color: #eee;
+        }
+
+        .play-btn {
+            display: inline-block;
+            background: var(--neon-green);
+            color: #000;
+            padding: 6px 18px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 12px rgba(0, 255, 204, 0.45);
+        }
+
+        .history-list {
+            width: 100%;
+            max-height: 260px;
+            overflow-y: auto;
+            margin-top: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.75rem;
+        }
+
+        /* Modal Overlays */
+        .modal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #2c1654, #1a0b2e);
+            border: 3px solid var(--royal-gold);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            width: 88%;
+            max-width: 340px;
+            box-shadow: 0 0 30px var(--royal-gold);
+        }
+
+        .modal-content h2 { color: var(--royal-gold); font-family: 'Cinzel', serif; font-size: 1.2rem; }
+        .win-amount-display { font-size: 1.8rem; font-weight: bold; color: var(--neon-green); margin: 8px 0; }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            font-size: 0.7rem;
+            color: var(--royal-gold-light);
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 7px 10px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--royal-gold);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.8rem;
+        }
+
+        .btn-wa-modal {
+            width: 100%;
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: #fff;
+            border: none;
+            padding: 8px 10px;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-bottom: 8px;
+        }
+
+        .audio-control {
+            margin-top: 8px;
+            font-size: 0.75rem;
+            color: #bbb;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="logo">👑 ROYAL SPIN & WIN</h1>
+    </header>
+
+    <!-- Side Floating Tab & Drawer: Refer to Spin Win -->
+    <button class="side-refer-tab" onclick="toggleReferDrawer()">🎁 Refer to Spin Win</button>
+
+    <aside class="side-refer-drawer" id="sideReferDrawer" aria-label="Refer to Spin Win">
+        <div class="refer-header">
+            <h3>🎁 Refer to Spin Win</h3>
+            <button class="refer-close-btn" onclick="toggleReferDrawer()">✕</button>
+        </div>
+        <p class="refer-desc">WhatsApp, Facebook या Instagram पर शेयर करें। <b>10 शेयर = 1 फ्री स्पिन</b>!</p>
+        <div class="refer-progress-box">
+            शेयर प्रोग्रेस: <b id="sideReferProgress">0 / 10</b><br>
+            <span style="font-size:0.65rem; color:#ccc;">10 शेयर पूरे होते ही 1 स्पिन मिलेगा</span>
+        </div>
+        <div class="social-share-list">
+            <button class="btn-social wa" onclick="shareOnPlatform('whatsapp')">
+                <span>📲 WhatsApp Share</span>
+                <span>+1</span>
+            </button>
+            <button class="btn-social fb" onclick="shareOnPlatform('facebook')">
+                <span>📘 Facebook Share</span>
+                <span>+1</span>
+            </button>
+            <button class="btn-social ig" onclick="shareOnPlatform('instagram')">
+                <span>📸 Instagram Share</span>
+                <span>+1</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Continuous Dummy Winning Records Side-Scroll (All > ₹1,000, Unique Names) -->
+    <div class="ticker-wrap" aria-label="ताज़ा विजेता सूची">
+        <div class="ticker-track">
+            <div class="ticker-group">
+                <span>🏆 <b>राहुल शर्मा</b> ने जीते <b>₹50,000</b></span>
+                <span>🏆 <b>पूजा वर्मा</b> ने जीते <b>₹10,000</b></span>
+                <span>🏆 <b>अमित यादव</b> ने जीते <b>₹5,000</b></span>
+                <span>🏆 <b>नेहा गुप्ता</b> ने जीते <b>₹1,00,000</b></span>
+                <span>🏆 <b>विकास पटेल</b> ने जीते <b>₹2,500</b></span>
+                <span>🏆 <b>अंजली सिंह</b> ने जीते <b>₹1,500</b></span>
+                <span>🏆 <b>सौरभ मिश्रा</b> ने जीते <b>₹10,000</b></span>
+                <span>🏆 <b>कविता जोशी</b> ने जीते <b>₹5,000</b></span>
+                <span>🏆 <b>दीपक तिवारी</b> ने जीते <b>₹1,200</b></span>
+                <span>🏆 <b>मोहित अग्रवाल</b> ने जीते <b>₹50,000</b></span>
+            </div>
+            <div class="ticker-group" aria-hidden="true">
+                <span>🏆 <b>राहुल शर्मा</b> ने जीते <b>₹50,000</b></span>
+                <span>🏆 <b>पूजा वर्मा</b> ने जीते <b>₹10,000</b></span>
+                <span>🏆 <b>अमित यादव</b> ने जीते <b>₹5,000</b></span>
+                <span>🏆 <b>नेहा गुप्ता</b> ने जीते <b>₹1,00,000</b></span>
+                <span>🏆 <b>विकास पटेल</b> ने जीते <b>₹2,500</b></span>
+                <span>🏆 <b>अंजली सिंह</b> ने जीते <b>₹1,500</b></span>
+                <span>🏆 <b>सौरभ मिश्रा</b> ने जीते <b>₹10,000</b></span>
+                <span>🏆 <b>कविता जोशी</b> ने जीते <b>₹5,000</b></span>
+                <span>🏆 <b>दीपक तिवारी</b> ने जीते <b>₹1,200</b></span>
+                <span>🏆 <b>मोहित अग्रवाल</b> ने जीते <b>₹50,000</b></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- HOME SECTION -->
+        <div id="home-section" class="section-view active">
+            <!-- Game Poster -->
+            <div class="game-poster">
+                <div class="poster-badge">ROYAL<br>SPIN</div>
+                <div class="poster-text">
+                    <h4>रॉयल स्पिन एंड विन — ₹1 से ₹1,00,000 तक!</h4>
+                    <p>10 शेयर = 1 फ्री स्पिन या रिचार्ज पूरा होने पर स्पिन जुड़ेंगे।</p>
+                </div>
+            </div>
+
+            <div class="wallet-panel">
+                <div class="card">
+                    <h3>Win Amount</h3>
+                    <p id="win-amount">₹0</p>
+                    <button class="withdraw-btn" onclick="openWithdrawModal()">Withdraw</button>
+                </div>
+                <div class="card">
+                    <h3>Available Spins</h3>
+                    <p id="avail-spins">0</p>
+                </div>
+            </div>
+
+            <!-- BUTTON THAT OPENS UPLOAD FORM -->
+            <div class="upload-trigger-container" id="uploadTriggerWrapper">
+                <button class="btn-open-upload" onclick="toggleUploadForm()">
+                    📤 Upload Payment Received Screenshot
+                </button>
+
+                <!-- FORM INSIDE COLLAPSIBLE PANEL -->
+                <div class="mini-upload-box" id="miniUploadBox">
+                    <div class="red-mark-banner" id="redMarkBanner">
+                        ❌ INVALID SCREENSHOT / UTR!
+                    </div>
+
+                    <div class="mini-upload-title">
+                        <span>Receipt Verification (₹<span id="pkgAmountDisplay">0</span>)</span>
+                        <span style="font-size:0.65rem; color:var(--neon-green);" id="currentDateDisplay">--</span>
+                    </div>
+
+                    <div class="mini-form-row">
+                        <input type="file" id="payScreenshot" accept="image/*" class="mini-file-btn" onchange="clearErrorStates()">
+                        <input type="text" id="utrNumber" placeholder="12-Digit UTR ID" maxlength="12" class="mini-input-utr" oninput="clearErrorStates()">
+                        <button class="mini-submit-btn" onclick="verifyAndAddSpins()">Verify</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wheel-container">
+                <div class="pointer"></div>
+                <div class="wheel-border" id="spinWheel"></div>
+                <button class="center-spin-btn" onclick="startSpin()">SPIN</button>
+            </div>
+
+            <div class="actions">
+                <button class="btn-royal" onclick="startSpin()">✨ Spin Now</button>
+                <button class="btn-royal" onclick="switchTab('plan')">🎟️ Plan</button>
+            </div>
+            
+            <div class="actions" style="margin-top: -5px;">
+                <button class="btn-royal" style="background: linear-gradient(45deg, #00f0ff, #3867d6); color:#fff;" onclick="switchTab('history')">📜 History</button>
+            </div>
+
+            <div class="audio-control" onclick="toggleSound()">
+                🔊 Sound Effects: <span id="soundStatus">ON</span>
+            </div>
+        </div>
+
+        <!-- PLAN SECTION -->
+        <div id="plan-section" class="section-view">
+            <h2 style="color: var(--royal-gold); margin-bottom: 10px; font-family:'Cinzel';">Select Plan</h2>
+            <div class="plan-grid">
+                <div class="plan-card">
+                    <h4>₹10 Plan</h4>
+                    <p>1 Spin • ₹10 only</p>
+                    <button class="play-btn" onclick="handleRazorpayRedirect('https://razorpay.me/@websitebajar?amount=CeQsAR0nTC%2BND0Le6liYzQ%3D%3D', 1, 10)">Play</button>
+                </div>
+                <div class="plan-card">
+                    <h4>₹100 Plan</h4>
+                    <p>10 Spins • ₹100 only</p>
+                    <button class="play-btn" onclick="handleRazorpayRedirect('https://razorpay.me/@websitebajar?amount=ZFm4ghdmeB6pF5PK8Ki64w%3D%3D', 10, 100)">Play</button>
+                </div>
+                <div class="plan-card">
+                    <h4>₹200 Plan</h4>
+                    <p>25 Spins • ₹200 only</p>
+                    <button class="play-btn" onclick="handleRazorpayRedirect('https://razorpay.me/@websitebajar?amount=ExQs%2Fv%2FDDS71hestyV8B7g%3D%3D', 25, 200)">Play</button>
+                </div>
+                <div class="plan-card">
+                    <h4>₹500 Plan</h4>
+                    <p>70 Spins • ₹500 only</p>
+                    <button class="play-btn" onclick="handleRazorpayRedirect('https://razorpay.me/@websitebajar?amount=bd6mwPoVV2sRePhB8DGUcw%3D%3D', 70, 500)">Play</button>
+                </div>
+            </div>
+            <button class="btn-royal" style="margin-top: 15px;" onclick="switchTab('home')">⬅️ Back to Game</button>
+        </div>
+
+        <!-- HISTORY SECTION -->
+        <div id="history-section" class="section-view">
+            <h2 style="color: var(--royal-gold); margin-bottom: 10px; font-family:'Cinzel';">Winning History</h2>
+            <div class="history-list" id="historyListContainer">
+                <div class="history-item"><span>No spins played yet</span><span>-</span></div>
+            </div>
+            <button class="btn-royal" style="margin-top: 15px;" onclick="switchTab('home')">⬅️ Back to Game</button>
+        </div>
+
+    </div>
+
+    <!-- WIN MODAL -->
+    <div class="modal" id="winModal">
+        <div class="modal-content">
+            <h2>CONGRATULATIONS!</h2>
+            <p style="font-size: 0.8rem; color: #ddd;">You have won amount:</p>
+            <div class="win-amount-display" id="modalWinAmount">₹0</div>
+            <button class="btn-royal" onclick="closeWinModal()">Spin Again</button>
+        </div>
+    </div>
+
+    <!-- WITHDRAWAL MODAL -->
+    <div class="modal" id="withdrawModal">
+        <div class="modal-content">
+            <h2>WITHDRAW WINNINGS</h2>
+            <p style="font-size: 0.7rem; color: var(--royal-gold-light); margin-bottom: 8px;">
+                Min Withdrawal: ₹1,000 से ऊपर • Refer/Share: <b id="modalShareCount">0 / 10</b>
+            </p>
+
+            <button class="btn-wa-modal" onclick="shareOnPlatform('whatsapp')">
+                📲 WhatsApp पर शेयर करें (<span id="btnShareProgress">0/10</span>)
+            </button>
+            
+            <div class="form-group">
+                <label>Payout Option:</label>
+                <select id="payoutType" onchange="togglePayoutInput()">
+                    <option value="upi">UPI ID</option>
+                    <option value="bank">Bank Account Number</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label id="payoutLabel">Enter UPI ID:</label>
+                <input type="text" id="payoutDetail" placeholder="e.g. user@upi">
+            </div>
+
+            <div class="form-group">
+                <label>Withdraw Amount (₹1,000 से ऊपर):</label>
+                <input type="number" id="withdrawAmountInput" placeholder="Enter Amount (> ₹1,000)">
+            </div>
+
+            <div style="display: flex; gap: 8px; margin-top: 12px;">
+                <button class="btn-royal" style="background: linear-gradient(45deg, #00b09b, #96c93d);" onclick="submitWithdrawal()">Submit Request</button>
+                <button class="btn-royal" style="background: #555; color: #fff;" onclick="closeWithdrawModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const prizes = [1, 500, 1000, 5000, 10000, 50000, 100000];
+        const numSlices = prizes.length;
+        const sliceAngle = 360 / numSlices;
+
+        let totalWin = parseFloat(localStorage.getItem('royal_win_amount')) || 0;
+        let availableSpins = parseInt(localStorage.getItem('royal_spins')) || 0;
+        let playedSpinsCount = parseInt(localStorage.getItem('royal_played_count')) || 0;
+        let referShareCount = parseInt(localStorage.getItem('royal_wa_shares')) || 0;
+
+        let soundEnabled = true;
+        let isSpinning = false;
+        let currentRotation = 0;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const wheel = document.getElementById('spinWheel');
+            prizes.forEach((prize, index) => {
+                const label = document.createElement('div');
+                label.className = 'wheel-label';
+                label.innerText = '₹' + prize.toLocaleString('en-IN');
+                const centerAngle = (index * sliceAngle) + (sliceAngle / 2);
+                label.style.transform = `rotate(${centerAngle}deg)`;
+                wheel.appendChild(label);
+            });
+
+            const todayStr = new Date().toLocaleDateString('en-GB');
+            document.getElementById('currentDateDisplay').innerText = todayStr;
+
+            checkPaymentReturn();
+            updateUI();
+        });
+
+        function saveData() {
+            localStorage.setItem('royal_win_amount', totalWin);
+            localStorage.setItem('royal_spins', availableSpins);
+            localStorage.setItem('royal_played_count', playedSpinsCount);
+            localStorage.setItem('royal_wa_shares', referShareCount);
+        }
+
+        function toggleReferDrawer() {
+            playClickSound();
+            const drawer = document.getElementById('sideReferDrawer');
+            drawer.classList.toggle('open');
+        }
+
+        function shareOnPlatform(platform) {
+            playClickSound();
+            referShareCount++;
+            let earnedSpins = 0;
+
+            if (referShareCount >= 10) {
+                earnedSpins = Math.floor(referShareCount / 10);
+                availableSpins += earnedSpins;
+                referShareCount = referShareCount % 10;
+            }
+
+            saveData();
+            updateUI();
+
+            const gameUrl = window.location.href.startsWith('http')
+                ? window.location.href
+                : 'https://razorpay.me/@websitebajar?amount=CeQsAR0nTC%2BND0Le6liYzQ%3D%3D';
+            const hindiText = `👑 रॉयल स्पिन एंड विन — स्पिन करें और जीतें! अभी जुड़ें: ${gameUrl}`;
+
+            let shareUrl = `https://wa.me/?text=${encodeURIComponent(hindiText)}`;
+            if (platform === 'facebook') {
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(gameUrl)}&quote=${encodeURIComponent(hindiText)}`;
+            } else if (platform === 'instagram') {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(hindiText).catch(() => {});
+                }
+                shareUrl = `https://www.instagram.com/`;
+            }
+
+            window.open(shareUrl, '_blank');
+
+            if (earnedSpins > 0) {
+                alert(`🎉 बधाई हो! आपके 10 शेयर पूरे हो गए हैं और आपको ${earnedSpins} फ्री स्पिन मिल गया है!`);
+            }
+        }
+
+        function handleRazorpayRedirect(url, spinsToAdd, cost) {
+            playClickSound();
+            const todayDateStr = new Date().toLocaleDateString('en-GB');
+            localStorage.setItem('pending_spins_add', spinsToAdd);
+            localStorage.setItem('pending_payment_cost', cost);
+            localStorage.setItem('payment_init_date', todayDateStr);
+            window.location.href = url;
+        }
+
+        function checkPaymentReturn() {
+            const pendingSpins = localStorage.getItem('pending_spins_add');
+            const cost = localStorage.getItem('pending_payment_cost') || 0;
+            if (pendingSpins) {
+                document.getElementById('uploadTriggerWrapper').style.display = 'block';
+                document.getElementById('pkgAmountDisplay').innerText = cost;
+            }
+        }
+
+        function toggleUploadForm() {
+            playClickSound();
+            const box = document.getElementById('miniUploadBox');
+            box.style.display = box.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showRedMark(message) {
+            const uploadBox = document.getElementById('miniUploadBox');
+            const redBanner = document.getElementById('redMarkBanner');
+            const utrInput = document.getElementById('utrNumber');
+
+            uploadBox.classList.add('error-state');
+            utrInput.classList.add('input-error');
+
+            redBanner.innerText = `❌ ${message}`;
+            redBanner.style.display = 'block';
+
+            playTone(200, 'sawtooth', 0.4, 0.3);
+        }
+
+        function clearErrorStates() {
+            const uploadBox = document.getElementById('miniUploadBox');
+            const redBanner = document.getElementById('redMarkBanner');
+            const utrInput = document.getElementById('utrNumber');
+
+            uploadBox.classList.remove('error-state');
+            utrInput.classList.remove('input-error');
+            redBanner.style.display = 'none';
+        }
+
+        function verifyAndAddSpins() {
+            playClickSound();
+            const pendingSpins = localStorage.getItem('pending_spins_add');
+            const initDate = localStorage.getItem('payment_init_date');
+            const todayDateStr = new Date().toLocaleDateString('en-GB');
+            
+            const fileInput = document.getElementById('payScreenshot');
+            const utrInput = document.getElementById('utrNumber').value.trim();
+
+            if (!pendingSpins) {
+                showRedMark("NO PENDING RECORD!");
+                return;
+            }
+
+            if (initDate && initDate !== todayDateStr) {
+                showRedMark("PAYMENT MUST BE FROM TODAY!");
+                return;
+            }
+
+            if (fileInput.files.length === 0) {
+                showRedMark("PLEASE SELECT SCREENSHOT!");
+                return;
+            }
+
+            const uploadedFile = fileInput.files[0];
+            const fileDate = new Date(uploadedFile.lastModified).toLocaleDateString('en-GB');
+
+            if (fileDate !== todayDateStr) {
+                showRedMark("SCREENSHOT MUST BE FROM TODAY (" + todayDateStr + ")");
+                return;
+            }
+
+            if (utrInput.length !== 12 || isNaN(utrInput)) {
+                showRedMark("ENTER VALID 12-DIGIT UTR!");
+                return;
+            }
+
+            clearErrorStates();
+            const added = parseInt(pendingSpins);
+            availableSpins += added;
+            
+            localStorage.removeItem('pending_spins_add');
+            localStorage.removeItem('pending_payment_cost');
+            localStorage.removeItem('payment_init_date');
+            saveData();
+            updateUI();
+
+            document.getElementById('uploadTriggerWrapper').style.display = 'none';
+            alert(`✅ Payment Verified!\n\n${added} नए स्पिन आपके वॉलेट में सफलतापूर्वक जोड़ दिए गए हैं।`);
+        }
+
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        function playTone(freq, type, duration, vol = 0.1) {
+            if (!soundEnabled) return;
+            try {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.value = freq;
+                gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch(e) {}
+        }
+
+        function playClickSound() { playTone(800, 'sine', 0.05, 0.15); }
+
+        function playTickSound() {
+            if (!soundEnabled) return;
+            try {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.03);
+                gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.03);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.03);
+            } catch(e) {}
+        }
+
+        function playSpinWhirSound() {
+            if (!soundEnabled) return;
+            let step = 0;
+            const totalTicks = 38;
+            function scheduleTick() {
+                if (step >= totalTicks || !isSpinning) return;
+                playTickSound();
+                step++;
+                let delay = 60 + Math.pow(step / totalTicks, 2.5) * 280;
+                setTimeout(scheduleTick, delay);
+            }
+            scheduleTick();
+        }
+
+        function playWinSound() {
+            const notes = [523.25, 659.25, 783.99, 1046.50];
+            notes.forEach((note, index) => {
+                setTimeout(() => playTone(note, 'triangle', 0.3, 0.25), index * 120);
+            });
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            document.getElementById('soundStatus').innerText = soundEnabled ? "ON" : "OFF";
+            playClickSound();
+        }
+
+        function switchTab(tabName) {
+            playClickSound();
+            document.querySelectorAll('.section-view').forEach(el => el.classList.remove('active'));
+            if(tabName === 'home') document.getElementById('home-section').classList.add('active');
+            if(tabName === 'plan') document.getElementById('plan-section').classList.add('active');
+            if(tabName === 'history') document.getElementById('history-section').classList.add('active');
+        }
+
+        function startSpin() {
+            if (isSpinning) return;
+            
+            if (availableSpins <= 0) {
+                alert("आपके पास स्पिन नहीं हैं! रिचार्ज करें या साइड 'Refer to Spin Win' से 10 शेयर करके 1 स्पिन पाएं।");
+                switchTab('plan');
+                return;
+            }
+
+            isSpinning = true;
+            playSpinWhirSound();
+            availableSpins--;
+            playedSpinsCount++;
+
+            // Always land on ₹1 slice
+            const prizeWon = 1;
+
+            saveData();
+            updateUI();
+
+            let targetIndex = prizes.indexOf(prizeWon);
+            if (targetIndex === -1) targetIndex = 0;
+
+            const sliceCenterAngle = (targetIndex * sliceAngle) + (sliceAngle / 2);
+            const stopAngle = (360 - sliceCenterAngle - 90 + 360) % 360; 
+            const extraRotations = 360 * 5; 
+            
+            const currentMod = currentRotation % 360;
+            let targetDegree = currentRotation + extraRotations + (stopAngle - currentMod);
+            if (stopAngle < currentMod) {
+                targetDegree += 360;
+            }
+
+            currentRotation = targetDegree;
+
+            const wheel = document.getElementById('spinWheel');
+            wheel.style.transform = `rotate(${targetDegree}deg)`;
+
+            setTimeout(() => {
+                isSpinning = false;
+                totalWin += prizeWon;
+                saveData();
+                updateUI();
+                recordHistory(prizeWon);
+                
+                playWinSound();
+                document.getElementById('modalWinAmount').innerText = "₹" + prizeWon.toLocaleString('en-IN');
+                document.getElementById('winModal').style.display = 'flex';
+            }, 5000);
+        }
+
+        function closeWinModal() {
+            playClickSound();
+            document.getElementById('winModal').style.display = 'none';
+        }
+
+        function updateUI() {
+            document.getElementById('win-amount').innerText = "₹" + totalWin.toLocaleString('en-IN');
+            document.getElementById('avail-spins').innerText = availableSpins;
+            document.getElementById('sideReferProgress').innerText = `${referShareCount} / 10`;
+            document.getElementById('modalShareCount').innerText = `${referShareCount} / 10`;
+            document.getElementById('btnShareProgress').innerText = `${referShareCount}/10`;
+        }
+
+        function openWithdrawModal() {
+            playClickSound();
+            updateUI();
+            document.getElementById('withdrawModal').style.display = 'flex';
+            document.getElementById('withdrawAmountInput').value = totalWin;
+        }
+
+        function closeWithdrawModal() {
+            playClickSound();
+            document.getElementById('withdrawModal').style.display = 'none';
+        }
+
+        function togglePayoutInput() {
+            const type = document.getElementById('payoutType').value;
+            const label = document.getElementById('payoutLabel');
+            const input = document.getElementById('payoutDetail');
+            if (type === 'upi') {
+                label.innerText = 'Enter UPI ID:';
+                input.placeholder = 'e.g. user@upi';
+            } else {
+                label.innerText = 'Enter Bank Account Number:';
+                input.placeholder = 'e.g. 123456789012';
+            }
+        }
+
+        function submitWithdrawal() {
+            playClickSound();
+            const details = document.getElementById('payoutDetail').value.trim();
+            const requestedAmount = parseFloat(document.getElementById('withdrawAmountInput').value);
+
+            if (!details) {
+                alert("कृपया अपना UPI ID या बैंक अकाउंट नंबर दर्ज करें!");
+                return;
+            }
+
+            if (isNaN(requestedAmount) || requestedAmount <= 1000) {
+                alert("⛔ Withdrawal Rejected!\n\nनिकासी राशि ₹1,000 से ऊपर होनी चाहिए।");
+                return;
+            }
+
+            if (requestedAmount > totalWin) {
+                alert("अपरियाप्त बैलेंस!");
+                return;
+            }
+
+            if (referShareCount < 10) {
+                alert(`⛔ Share Required!\n\nWithdrawal सबमिट करने से पहले 10 शेयर पूरे करें (अभी ${referShareCount}/10 हुए हैं)।`);
+                return;
+            }
+
+            alert(`✅ Withdrawal Successful!\n\n₹${requestedAmount.toLocaleString('en-IN')} का निकासी अनुरोध दर्ज कर लिया गया है।`);
+            totalWin -= requestedAmount;
+            saveData();
+            updateUI();
+            closeWithdrawModal();
+        }
+
+        function recordHistory(amount) {
+            const container = document.getElementById('historyListContainer');
+            if (container.querySelector('span') && container.querySelector('span').innerText.includes('No spins')) {
+                container.innerHTML = '';
+            }
+            const timeNow = new Date().toLocaleTimeString();
+            const item = document.createElement('div');
+            item.className = 'history-item';
+            item.innerHTML = `<span>Won ₹${amount.toLocaleString('en-IN')}</span><span style="color:#aaa;">${timeNow}</span>`;
+            container.prepend(item);
+        }
+    </script>
+</body>
+</html>
